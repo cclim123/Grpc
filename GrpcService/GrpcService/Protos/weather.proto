@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcService";
+
+package greet;
+
+service Weather {
+  // Sends a weather
+  rpc SaveForecast (WeatherForecast) returns (StatusResponse);
+  rpc GetForecast (Empty) returns (WeatherForecast);
+}
+
+message Empty {}
+
+message WeatherForecast {
+  string summary = 1;
+}
+
+message StatusResponse {
+  bool success = 1;
+}
